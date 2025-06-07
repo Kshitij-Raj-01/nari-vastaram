@@ -98,14 +98,14 @@ export const Product = () => {
           <div className="fixed inset-0 z-40 flex">
             <DialogPanel
               transition
-              className="relative ml-auto flex size-full max-w-xs transform flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl transition duration-300 ease-in-out data-closed:translate-x-full"
+              className="relative ml-auto flex size-full max-w-xs transform flex-col overflow-y-auto bg-[#F1D4A9] py-4 pb-12 shadow-xl transition duration-300 ease-in-out data-closed:translate-x-full"
             >
               <div className="flex items-center justify-between px-4">
                 <h2 className="text-lg font-medium text-gray-900">Filters</h2>
                 <button
                   type="button"
                   onClick={() => setMobileFiltersOpen(false)}
-                  className="-mr-2 flex size-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
+                  className="-mr-2 flex size-10 items-center justify-center rounded-md bg-[#F1D4A9] p-2 text-gray-400"
                 >
                   <span className="sr-only">Close menu</span>
                   <XMarkIcon aria-hidden="true" className="size-6" />
@@ -113,7 +113,7 @@ export const Product = () => {
               </div>
 
               {/* Filters */}
-              <form className="mt-4 border-t border-gray-200">
+              <form className="mt-4 border-t border-gray-200 bg-[#F1D4A9]">
                 {filters.map((section) => (
                   <Disclosure
                     key={section.id}
@@ -121,7 +121,7 @@ export const Product = () => {
                     className="border-t border-gray-200 px-4 py-6"
                   >
                     <h3 className="-mx-2 -my-3 flow-root">
-                      <DisclosureButton className="group flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
+                      <DisclosureButton className="group flex w-full items-center justify-between bg-[#F1D4A9] px-2 py-3 text-gray-400 hover:text-gray-500">
                         <span className="font-medium text-gray-900">
                           {section.name}
                         </span>
@@ -137,7 +137,7 @@ export const Product = () => {
                         </span>
                       </DisclosureButton>
                     </h3>
-                    <DisclosurePanel className="pt-6">
+                    <DisclosurePanel className="pt-6 ">
                       <div className="space-y-6">
                         {section.options.map((option, optionIdx) => (
                           <div key={option.value} className="flex gap-3">
@@ -192,7 +192,7 @@ export const Product = () => {
                     className="border-t border-gray-200 px-4 py-6"
                   >
                     <h3 className="-mx-2 -my-3 flow-root">
-                      <DisclosureButton className="group flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
+                      <DisclosureButton className="group flex w-full items-center justify-between bg-[#F1D4A9] px-2 py-3 text-gray-400 hover:text-gray-500">
                         <span className="font-medium text-gray-900">
                           {section.name}
                         </span>
@@ -315,7 +315,7 @@ export const Product = () => {
                 className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
               >
                 <span className="sr-only">Filters</span>
-                <FunnelIcon aria-hidden="true" className="size-5" />
+                <FunnelIcon aria-hidden="true" className="size-5 text-[#f4ab3e]" />
               </button>
             </div>
           </div>
@@ -327,12 +327,12 @@ export const Product = () => {
 
             <div className="grid grid-cols-1 gap-x-15 gap-y-10 lg:grid-cols-5">
               {/* Filters */}
-              <div className="bg-[#F1D4A9] p-5">
+              <div className="bg-[#F1D4A9] p-5 hidden lg:block">
                 <div className="flex items-center justify-between mb-10">
                 <h1 className="text-lg opacity-50 font-bold">Filter</h1>
                 <FilterListIcon/>
                 </div>
-                <form className="hidden lg:block">
+                <form className="">
                   {filters.map((section) => (
                     <Disclosure
                       key={section.id}
@@ -458,7 +458,7 @@ export const Product = () => {
               </div>
 
               {/* Product grid */}
-              <div className="lg:col-span-4 w-full ml-10">
+              <div className="lg:col-span-4 lg:ml-10">
                 <div className="flex flex-wrap justify-center bg-[#F1D4A9] py-5 ">
                   {mens_kurta.map((item) => (
                     <ProductCard product={item} />

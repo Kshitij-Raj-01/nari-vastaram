@@ -15,8 +15,11 @@ const Checkout = () => {
   const [activeStep, setActiveStep] = React.useState(0);
   const location = useLocation();
   const querySearch = new URLSearchParams(location.search);
+  const step = parseInt(querySearch.get("step")) || 0;
 
-  const step = querySearch.get("step")
+  React.useEffect(() => {
+    setActiveStep(step);
+  }, [step]);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -27,28 +30,33 @@ const Checkout = () => {
   };
 
   return (
-    <div className="px-10 lg:px-20">
-    <Box sx={{ width: '100%' }}>
-      <Stepper activeStep={step}>
-        {steps.map((label, index) => {
-          const stepProps = {};
-          const labelProps = {};
-          return (
-            <Step key={label} {...stepProps}>
-              <StepLabel {...labelProps}>{label}</StepLabel>
+    <div className="px-4 sm:px-6 md:px-10 lg:px-20">
+      <Box sx={{ width: '100%', overflowX: 'auto' }}>
+        <Stepper activeStep={activeStep} alternativeLabel>
+          {steps.map((label) => (
+            <Step key={label}>
+              <StepLabel
+                sx={{
+                  typography: {
+                    xs: 'caption',
+                    sm: 'body1'
+                  },
+                }}
+              >
+                {label}
+              </StepLabel>
             </Step>
-          );
-        })}
-      </Stepper>
+          ))}
+        </Stepper>
+      </Box>
+
       {activeStep === steps.length ? (
-        <React.Fragment>
-          <Typography sx={{ mt: 2, mb: 1 }}>
-            All steps completed - you&apos;re finished
-          </Typography>
-        </React.Fragment>
+        <Typography sx={{ mt: 2, mb: 1 }}>
+          All steps completed — you’re finished!
+        </Typography>
       ) : (
         <React.Fragment>
-          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2, mb:5 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2, mb: 5 }}>
             <Button
               color="inherit"
               disabled={activeStep === 0}
@@ -60,13 +68,12 @@ const Checkout = () => {
           </Box>
 
           <div>
-            {step == 2 ? <DeliveryAddressForm/> : <OrderSummary/>}
+            {activeStep === 2 ? <DeliveryAddressForm /> : <OrderSummary />}
           </div>
         </React.Fragment>
       )}
-    </Box>
     </div>
   );
-}
+};
 
-export default Checkout
+export default Checkout;

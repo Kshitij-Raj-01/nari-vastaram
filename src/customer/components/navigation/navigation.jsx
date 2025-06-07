@@ -201,7 +201,7 @@ export const Navigation = () => {
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
+                className="relative -m-2 inline-flex items-center justify-center rounded-md p-2  text-gray-400"
               >
                 <span className="absolute -inset-0.5" />
                 <span className="sr-only">Close menu</span>
@@ -234,7 +234,7 @@ export const Navigation = () => {
                             src={item.imageSrc}
                             className="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75"
                           />
-                          <a href={item.href} className="mt-6 block font-medium text-gray-900">
+                          <a className="mt-6 block font-medium text-gray-900">
                             <span aria-hidden="true" className="absolute inset-0 z-10" />
                             {item.name}
                           </a>
@@ -250,7 +250,7 @@ export const Navigation = () => {
                         <ul role="list" aria-labelledby={`${category.id}-${section.id}-heading-mobile`} className="mt-6 flex flex-col space-y-6">
                           {section.items.map((item) => (
                             <li key={item.name} className="flow-root">
-                              <a href={item.href} className="-m-2 block p-2 text-gray-500">
+                              <a onClick={() =>{navigate(`/${category.id}/${section.id}/${item.name}`); setOpen(false);}} className="-m-2 block p-2 text-gray-500">
                                 {item.name}
                               </a>
                             </li>
@@ -281,13 +281,13 @@ export const Navigation = () => {
           Get free delivery on orders over $100
         </p>
 
-        <nav aria-label="Top" className="mx-10 max-w-full px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Top" className="max-w-full px-4 sm:px-6 lg:px-8">
           <div className="border-b border-gray-200">
             <div className="flex h-16 items-center">
               <button
                 type="button"
                 onClick={() => setOpen(true)}
-                className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden"
+                className="relative rounded-md bg-[#D8A353] p-2 text-white lg:hidden"
               >
                 <span className="absolute -inset-0.5" />
                 <span className="sr-only">Open menu</span>

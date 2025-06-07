@@ -208,36 +208,15 @@ const ProductDetail = () => {
                   ))}
                 </div>
               </Grid>
-              <Grid item xs={5}>
-                <h1 className="font-semibold pb-1 text-xl">Product Ratings</h1>
-                <div className="flex items-center space-x-3">
-                  <Rating value={4.6} precision={0.5} readOnly />
-                  <p className="opacity-60">59350 Ratings </p>
-                </div>
-                <Box mt={3}>
-                  <Grid container alignItems="center" spacing={2}>
-                    <Grid item xs={3}>
-                      <p>Excellent</p>
-                    </Grid>
-                    <Grid item xs={7}>
-                      <LinearProgress
-                        sx={{ bgcolor: "white", borderRadius: 4, height: 7 }}
-                        variant="determinate"
-                        value={40}
-                        color="success"
-                      />
-                    </Grid>
-                  </Grid>
-                </Box>
-              </Grid>
+              
             </Grid>
           </div>
         </section>
 
         {/* Similar Products */}
-        <section className="pt-10">
+        <section className="pt-10 items">
           <h1 className="py-5 text-xl font-bold">Similar Products</h1>
-          <div className="flex flex-wrap gap-5 justify-start bg-[#F1D4A9] p-10">
+          <div className="flex flex-wrap gap-5 lg:justify-start justify-center bg-[#F1D4A9] p-10">
             {mens_kurta.map((item, index) => (
               <div key={index} className="flex-grow-0">
                 <HomeSectionCard product={item} />

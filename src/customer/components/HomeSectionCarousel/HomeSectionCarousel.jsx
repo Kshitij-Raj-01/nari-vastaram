@@ -41,7 +41,6 @@ function HomeSectionCarousel({data, sectionName}) {
           <Button
           variant="outlined"
           onClick={slideNext}
-          className="z-50"
           sx={{
             position: "absolute",
             top: "8rem",
@@ -75,7 +74,6 @@ function HomeSectionCarousel({data, sectionName}) {
         {activeIndex > 0 && (
           <Button
           variant="outlined"
-          className="z-50"
           onClick={slidePrev}
           sx={{
             position: "absolute",
