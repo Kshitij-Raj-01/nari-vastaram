@@ -7,8 +7,8 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 function HomeSectionCarousel({data, sectionName}) {
   const [activeIndex, setActiveIndex] = useState(0); // Track activeIndex
   const responsive = {
-    0: { items: 1 },
-    720: { items: 3 },
+    0: { items: 2 },
+    720: { items: 4 },
     1024: { items: 6.5 },
   };
 
@@ -38,71 +38,73 @@ function HomeSectionCarousel({data, sectionName}) {
 
         {/* Conditionally render "Next" button */}
         {activeIndex < items.length - 6 && (
-          <Button
-          variant="outlined"
-          onClick={slideNext}
-          sx={{
-            position: "absolute",
-            top: "8rem",
-            right: "0rem",
-            transform: "translateX(50%) rotate(90deg)",
-            bgcolor: "transparent",
-            borderColor: "#D8A353",
-            color: "#D8A353",
-            '&:hover': {
-              borderColor: "#FFFFFF",
-              color: "#FFFFFF",
-              bgcolor: "#D8A353", // Prevents background fill
-            },
-            minWidth: '40px',
-            height: '40px',
-          }}
-          aria-label="next"
-        >
-          <KeyboardArrowLeftIcon
-            sx={{
-              transform: "rotate(90deg)",
-              color: "inherit", // Inherits from Button
-              transition: "color 0.3s ease-in-out",
-            }}
-          />
-        </Button>
-        
-        )}
+  <div className="hidden sm:block">
+    <Button
+      variant="outlined"
+      onClick={slideNext}
+      sx={{
+        position: "absolute",
+        top: "8rem",
+        right: "0rem",
+        transform: "translateX(50%) rotate(90deg)",
+        bgcolor: "transparent",
+        borderColor: "#D8A353",
+        color: "#D8A353",
+        '&:hover': {
+          borderColor: "#FFFFFF",
+          color: "#FFFFFF",
+          bgcolor: "#D8A353",
+        },
+        minWidth: '40px',
+        height: '40px',
+      }}
+      aria-label="next"
+    >
+      <KeyboardArrowLeftIcon
+        sx={{
+          transform: "rotate(90deg)",
+          color: "inherit",
+          transition: "color 0.3s ease-in-out",
+        }}
+      />
+    </Button>
+  </div>
+)}
 
-        {/* Conditionally render "Prev" button */}
-        {activeIndex > 0 && (
-          <Button
-          variant="outlined"
-          onClick={slidePrev}
-          sx={{
-            position: "absolute",
-            top: "8rem",
-            left: "0rem",
-            transform: "translateX(-50%) rotate(-90deg)",
-            bgcolor: "transparent",
-            borderColor: "#D8A353",
-            color: "#D8A353",
-            '&:hover': {
-              borderColor: "#FFFFFF",
-              color: "#FFFFFF",
-              bgcolor: "#D8A353",
-            },
-            minWidth: '40px',
-            height: '40px',
-          }}
-          aria-label="previous"
-        >
-          <KeyboardArrowLeftIcon
-            sx={{
-              transform: "rotate(90deg)",
-              color: "inherit", // Will turn white on hover
-              transition: "color 0.3s ease-in-out",
-            }}
-          />
-        </Button>
-        
-        )}
+{/* Conditionally render "Prev" button (hidden on mobile) */}
+{activeIndex > 0 && (
+  <div className="hidden sm:block">
+    <Button
+      variant="outlined"
+      onClick={slidePrev}
+      sx={{
+        position: "absolute",
+        top: "8rem",
+        left: "0rem",
+        transform: "translateX(-50%) rotate(-90deg)",
+        bgcolor: "transparent",
+        borderColor: "#D8A353",
+        color: "#D8A353",
+        '&:hover': {
+          borderColor: "#FFFFFF",
+          color: "#FFFFFF",
+          bgcolor: "#D8A353",
+        },
+        minWidth: '40px',
+        height: '40px',
+      }}
+      aria-label="previous"
+    >
+      <KeyboardArrowLeftIcon
+        sx={{
+          transform: "rotate(90deg)",
+          color: "inherit",
+          transition: "color 0.3s ease-in-out",
+        }}
+      />
+    </Button>
+  </div>
+)}
       </div>
     </div>
   );
